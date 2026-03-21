@@ -1,5 +1,7 @@
 package model;
 
+import java.time.LocalDate;
+
 public class Venda {
     private static int contId = 1;
     private int id;
@@ -7,6 +9,7 @@ public class Venda {
     private double valVen;
     private double desconto;
     private double valFin;
+    private LocalDate dataVenda;
 
     public Venda(int quant, double valVen, double desconto){
         this.id = contId++; // Gera id
@@ -14,11 +17,16 @@ public class Venda {
         this.valVen = valVen;
         this.desconto = desconto;
         this.valFin = valVen - desconto;
+        this.dataVenda = LocalDate.now();
+    }
+
+    public LocalDate getDataVenda() {
+        return dataVenda;
     }
 
     @Override
     public String toString() {
-        return String.format("  %-3d   %-10d   %-10.2f   %-10.2f   %-10.2f  ",
-                id, quant, valVen, desconto, valFin);
+        return String.format("  %-3d   %-10s   %-10d   %-10.2f   %-10.2f   %-10.2f  ",
+                id, dataVenda, quant, valVen, desconto, valFin);
     }
 }

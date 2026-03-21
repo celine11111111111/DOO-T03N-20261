@@ -22,19 +22,21 @@ public class VendaController {
             op = mostraMenu();
             processaOp(op);
         } while (op != 6);
+
+        scanner.close();
     }
 
     // Mostra menu ao usuário
     private int mostraMenu() {
 
-        System.out.printf("\n=============================================================\n" +
+        System.out.printf("\n==========================================================================\n" +
                 "[1] - Cadastrar nova Venda\n" +
                 "[2] - Listar vendas cadastradas\n" +
                 "[3] - Apenas calcular preço\n" +
                 "[4] - Apenas calcular troco\n" +
                 "[5] - Apenas calcular desconto\n" +
                 "[6] - Sair\n" +
-                "=============================================================\n" +
+                "==========================================================================\n" +
                 "Entre com a opção : ");
 
         return scanner.nextInt();
@@ -89,7 +91,6 @@ public class VendaController {
         System.out.println("venda cadastrada com sucesso!");
     }
 
-
     // Lista compras realizadas
     private void listaCompras() {
 
@@ -99,16 +100,16 @@ public class VendaController {
         }
 
         System.out.printf(
-                "\n-------------------------------------------------------------\n" +
-                "  %-3s   %-10s   %-10s   %-10s   %-10s  \n" +
-                "-------------------------------------------------------------\n",
-                "ID", "QUANTIDADE", "V.TOTAL", "DESCONTO", "V.PAGO");
+                "\n--------------------------------------------------------------------------\n" +
+                "  %-3s   %-10s   %-10s   %-10s   %-10s   %-10s  \n" +
+                "--------------------------------------------------------------------------\n",
+                "ID", "DATA", "QUANTIDADE", "V.TOTAL", "DESCONTO", "V.PAGO");
 
         for (Venda m : vendas) {
             System.out.println(m);
         }
 
-        System.out.println("-------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------");
 
     }
 
